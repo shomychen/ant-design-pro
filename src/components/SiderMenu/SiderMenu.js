@@ -56,19 +56,19 @@ export default class SiderMenu extends PureComponent {
     });
     return (
       <Sider
-        trigger={null}
+        // trigger={null}
         collapsible
         collapsed={collapsed}
         breakpoint="lg"
         onCollapse={onCollapse}
-        width={256}
+        width={272}
         theme={theme}
         className={siderClassName}
       >
         <div className={styles.logo} id="logo">
           <Link to="/">
             <img src={logo} alt="logo" />
-            <h1>Ant Design Pro</h1>
+            <h1>智慧美居</h1>
           </Link>
         </div>
         <Suspense fallback={<PageLoading />}>
@@ -77,7 +77,7 @@ export default class SiderMenu extends PureComponent {
             mode="inline"
             handleOpenChange={this.handleOpenChange}
             onOpenChange={this.handleOpenChange}
-            style={{ padding: '16px 0', width: '100%' }}
+            style={{ padding: '16px 0 50px', width: '100%' }}
             {...defaultProps}
           />
         </Suspense>

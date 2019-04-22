@@ -1,0 +1,43 @@
+@import '~antd/lib/style/themes/default.less';
+
+// TODO StandardTable替换后，这些数据都要清空
+.ant-pagination.spec-pagination {
+  margin-top: 16px;
+  text-align: right;
+  width: 100%;
+  .ant-pagination-total-text {
+    float: left;
+  }
+
+}
+// TODO StandardTable替换后，这个要清空
+
+:global {
+  .ant-pagination {
+    border-radius: 4px;
+    > li {
+      &.ant-pagination-total-text,
+      &.ant-pagination-prev{
+        margin-right: 4px;
+      }
+      &.ant-pagination-next{
+        margin-left: 4px;
+      }
+    }
+    .ant-pagination-jump-prev-custom-icon{
+      margin-right: 0;
+    }
+    .ant-pagination-item {
+      margin-right: 0;
+      border: 0;
+      background: transparent;
+      line-height: @pagination-item-size;
+    }
+    .ant-pagination-options-quick-jumper,
+
+    .ant-pagination-options-quick-jumper input{
+      height: @pagination-item-size;
+      line-height: @pagination-item-size;
+    }
+  }
+}

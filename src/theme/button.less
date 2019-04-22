@@ -1,0 +1,14 @@
+@import '~antd/lib/style/themes/default.less';
+// reset ant-design
+
+.ant-btn {
+  box-shadow: none;
+  &.ant-btn-lg {
+    line-height: @btn-height-lg - 2;
+  }
+}
+
+.ant-btn > .anticon + span,
+.ant-btn > span + .anticon {
+  margin-left: 8px !important;
+}

@@ -1,3 +1,15 @@
+@import '~antd/lib/style/themes/default.less';
+@import './reset-antdesign.less';
+
+@spec-card-padding: @padding-xs;
+@spec-card-background: #f2f2f2;
+@spec-width-xs: 60px;
+@spec-width-sm: 120px;
+@spec-width-md: 200px;
+@spec-width-lg: 300px;
+@spec-width-xlg: 500px;
+@spec-width-wide: 100%;
+
 html,
 body,
 #root {
@@ -30,4 +42,47 @@ body {
 ul,
 ol {
   list-style: none;
+}
+
+.tableCard {
+  &.ant-card {
+    .ant-card-body {
+      padding: @spec-card-padding;
+      background: @spec-card-background;
+    }
+    .ant-table-tbody {
+      background: #ffffff;
+    }
+  }
+}
+
+.text-success {
+  color: @success-color;
+}
+.text-warning {
+  color: @warning-color;
+}
+.text-danger {
+  color: @error-color;
+}
+
+.text-disabled {
+  color: @disabled-color;
+}
+
+
+.width-xs{
+  width: @spec-width-xs !important;
+}
+.width-sm{
+  width: @spec-width-sm !important;
+}
+.width-md{
+  width: @spec-width-md !important;
+}
+.width-lg{
+  width: @spec-width-lg !important;
+}
+.width-xlg{
+  width: @spec-width-xlg !important;
 }

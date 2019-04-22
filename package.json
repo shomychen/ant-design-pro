@@ -1,14 +1,15 @@
 {
-  "name": "ant-design-pro",
+  "name": "smart-admin-pro",
   "version": "2.1.1",
   "description": "An out-of-box UI solution for enterprise applications",
   "private": true,
   "scripts": {
-    "start": "cross-env APP_TYPE=site umi dev",
+    "start": "cross-env APP_TYPE=site umi dev --port 8004",
     "start:no-mock": "cross-env MOCK=none umi dev",
     "dev": "cross-env APP_TYPE=site umi dev",
     "dev:no-mock": "cross-env MOCK=none umi dev",
     "build": "umi build",
+    "build:home": "cross-env Build_PATH=home umi build",
     "analyze": "cross-env ANALYZE=1 umi build",
     "lint:style": "stylelint \"src/**/*.less\" --syntax less",
     "lint": "eslint --ext .js src mock tests && npm run lint:style",
@@ -21,7 +22,7 @@
     "prettier": "node ./scripts/prettier.js"
   },
   "dependencies": {
-    "ant-design-pro": "^2.1.1",
+    "ant-design-pro": "^2.3.1",
     "antd": "^3.10.9",
     "classnames": "^2.2.6",
     "dva": "^2.4.0",
@@ -40,7 +41,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "cross-env": "^5.1.1",
+    "cross-env": "^5.2.0",
     "cross-port-killer": "^1.0.1",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.0.0",
@@ -53,6 +54,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
+    "mockjs": "^1.0.1-beta3",
     "prettier": "1.15.2",
     "stylelint": "^9.8.0",
     "stylelint-config-prettier": "^4.0.0",

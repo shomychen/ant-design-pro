@@ -1,6 +1,11 @@
 @import '~antd/lib/style/themes/default.less';
 
 @nav-header-height: @layout-header-height;
+@spec-nav-header-background: #1d3e86;
+@spec-menu-font-size: 18px;
+@spec-menu-background: #143179;
+@spec-menu-active-background: #1b3a7e;
+@spec-nav-header-font-size: 24px;
 
 .logo {
   height: @nav-header-height;
@@ -8,27 +13,28 @@
   line-height: @nav-header-height;
   padding-left: (@menu-collapsed-width - 32px) / 2;
   transition: all 0.3s;
-  background: #002140;
+  background: @spec-nav-header-background;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, .2);
   overflow: hidden;
   img {
     display: inline-block;
     vertical-align: middle;
-    height: 32px;
+    height: @spec-nav-header-font-size;
   }
   h1 {
     color: white;
     display: inline-block;
     vertical-align: middle;
-    font-size: 20px;
-    margin: 0 0 0 12px;
-    font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-weight: 600;
+    font-size: @spec-nav-header-font-size;
+    margin: 0 0 0 16px;
+    //font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 400;
   }
 }
 
 .sider {
   min-height: 100vh;
-  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  //box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   position: relative;
   z-index: 10;
   &.fixSiderbar {
@@ -62,6 +68,78 @@
 }
 
 :global {
+  .ant-menu-dark .ant-menu-sub {
+    background: @spec-menu-background;
+    padding: 0 6px;
+  }
+  .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    border-radius: 4px;
+  }
+  .ant-menu {
+    //background: url('/images/sideer-bg.png') @spec-menu-background left bottom no-repeat;
+    .ant-menu-item i,
+    .ant-menu-submenu-title  i{
+      font-size: @spec-menu-font-size !important;
+      color: #b5bfd5;
+      margin-right: 16px;
+    }
+
+    &.ant-menu-inline {
+      &.ant-menu-sub {
+        box-shadow: none;
+        padding: 0 6px;
+      }
+      .ant-menu-item,
+      .ant-menu-submenu-title {
+        font-size: @spec-menu-font-size !important;
+      }
+    }
+    &.ant-menu-dark {
+      .ant-menu-item-selected {
+        border-radius: 4px;
+      }
+      .ant-menu-submenu-inline {
+        > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+          &:before {
+            transform: rotate(-45deg) translateX(5px);
+          }
+          &:after {
+            transform: rotate(45deg) translateX(-5px);
+          }
+        }
+        &.ant-menu-submenu-open {
+          > .ant-menu-submenu-title  > .ant-menu-submenu-arrow {
+            transform: translateY(-5px);
+            &:after {
+              transform: rotate(-45deg) translateX(-5px);
+            }
+            &:before {
+              transform: rotate(45deg) translateX(5px);
+            }
+          }
+        }
+      }
+      .ant-menu-submenu-arrow{
+        &:after, &:before{
+          width:12px !important;
+        }
+        &:before {
+          //transform: rotate(45deg) translateY(-5px) !important;
+        }
+        &:after {
+          //transform: rotate(-45deg) translateY(5px) !important;
+        }
+      }
+    }
+  }
+
+  // 菜单 折叠状态
+  .ant-menu-vertical {
+    .ant-menu-item,
+    .ant-menu-submenu-title {
+      font-size: @spec-menu-font-size;
+    }
+  }
   .top-nav-menu li.ant-menu-item {
     height: @nav-header-height;
     line-height: @nav-header-height;
@@ -72,11 +150,11 @@
   .ant-menu-inline-collapsed {
     & > .ant-menu-item .sider-menu-item-img + span,
     &
-      > .ant-menu-item-group
-      > .ant-menu-item-group-list
-      > .ant-menu-item
-      .sider-menu-item-img
-      + span,
+    > .ant-menu-item-group
+    > .ant-menu-item-group-list
+    > .ant-menu-item
+    .sider-menu-item-img
+    + span,
     & > .ant-menu-submenu > .ant-menu-submenu-title .sider-menu-item-img + span {
       max-width: 0;
       display: inline-block;
@@ -87,5 +165,9 @@
   .ant-menu-submenu-title .sider-menu-item-img + span {
     transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
     opacity: 1;
+  }
+
+  .ant-layout-sider-trigger {
+    background: rgba(255,255,255,.1);
   }
 }
